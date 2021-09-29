@@ -1,11 +1,12 @@
 import React from 'react';
-import { 
-    Button, 
-    Divider, 
-    FormControl, 
-    FormHelperText, 
-    InputBase, 
-    InputLabel, 
+import {
+    Button,
+    Divider,
+    FormControl,
+    FormHelperText,
+    Grid,
+    InputBase,
+    InputLabel,
     makeStyles,
     withStyles
 } from '@material-ui/core'
@@ -33,8 +34,8 @@ const ModalPermissionCreate = ({ handleModalClose }) => {
             backgroundColor: theme.palette.background.paper,
             border: '1px solid #ced4da',
             fontSize: 16,
-            width:200,
-            textAlign:'left',
+            width: 200,
+            textAlign: 'left',
             padding: '10px 26px 10px 12px',
             transition: theme.transitions.create(['border-color', 'box-shadow']),
             // Use the system font instead of the default Roboto font.
@@ -64,34 +65,34 @@ const ModalPermissionCreate = ({ handleModalClose }) => {
             width: 330,
         },
         header: {
-            display: 'flex', 
+            display: 'flex',
             justifyContent: 'center',
             '& p': {
                 fontSize: 24,
                 marginBottom: theme.spacing(1),
             },
-        }, 
+        },
         body: {
             '& #object': {
                 marginTop: theme.spacing(2),
                 marginBottom: theme.spacing(4),
             },
             '& div': {
-                display:'flex',
-                justifyContent:'center',
+                display: 'flex',
+                justifyContent: 'center',
                 '& #ButtonAdd': {
                     marginBottom: theme.spacing(1),
-                    color:'white',
+                    color: 'white',
                     backgroundColor: '#0367A6',
                     textTransform: 'none',
                 },
             },
-            
+
         },
         error: {
-            '& span':{
+            '& span': {
                 color: '#bf1650',
-                '&::before':{
+                '&::before': {
                     display: 'inline',
                     content: '"⚠ "',
                 },
@@ -104,47 +105,63 @@ const ModalPermissionCreate = ({ handleModalClose }) => {
     const classes = useStyles();
 
     const schema = yup.object().shape({
-        Permissionname: yup.string().trim()
-            .required( () => <span>Name is required</span> )
+        Nombre: yup.string().trim()
+            .required(() => <span>Name is required</span>)
     });
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(schema),
     });
 
     const onSubmit = data => {
-        dispatch( Creating( "permission/", data ) );
+        // console.log(data)
+        dispatch(Creating("user/create", data));
+        handleModalClose();
     }
 
     return (
-        <div className={ classes.content }>
-        <div className={ classes.header }>
-            <p>Permission Form</p>
-        </div>            
-        <Divider />
-        <form onSubmit={ handleSubmit( onSubmit ) } className={ classes.body }>
-            <div id="object">
-                <FormControl className={ classes.margin }>
-                    <InputLabel shrink htmlFor="Permissionname">Permission Name</InputLabel>
-                    <BootstrapInput 
-                        name="Permissionname"
-                        inputRef={register}
-                        placeholder="Permission Name" />
-                    <FormHelperText className={ classes.error }>
-                        <ErrorMessage errors={errors} name="Permissionname" />
-                    </FormHelperText>
-                </FormControl>
+        <div className={classes.content}>
+            <div className={classes.header}>
+                <p>Permission Form</p>
             </div>
-            <div>
-                <Button 
-                    id="ButtonAdd" 
-                    variant="contained"
-                    type="submit"
-                    startIcon={ <AddIcon /> }>
-                    Add
-                </Button>
-            </div>
-        </form>
-    </div>
+            <Divider />
+            <form onSubmit={handleSubmit(onSubmit)} className={classes.body}>
+                <Grid container>
+                    <Grid item xs={12}>
+                        <FormControl className={classes.margin}>
+                            <InputLabel shrink htmlFor="Nombre">Nombre</InputLabel>
+                            <BootstrapInput
+                                name="Nombre"
+                                inputRef={register}
+                                placeholder="Nombre" />
+                            <FormHelperText className={classes.error}>
+                                <ErrorMessage errors={errors} name="Nombre" />
+                            </FormHelperText>
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <FormControl className={classes.margin}>
+                            <InputLabel shrink htmlFor="Email">Email</InputLabel>
+                            <BootstrapInput
+                                name="Email"
+                                inputRef={register}
+                                placeholder="Email" />
+                            <FormHelperText className={classes.error}>
+                                <ErrorMessage errors={errors} name="Email" />
+                            </FormHelperText>
+                        </FormControl>
+                    </Grid>
+                </Grid>
+                <div>
+                    <Button
+                        id="ButtonAdd"
+                        variant="contained"
+                        type="submit"
+                        startIcon={<AddIcon />}>
+                        Add
+                    </Button>
+                </div>
+            </form>
+        </div>
     )
 }
 

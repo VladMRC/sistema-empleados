@@ -30,7 +30,7 @@ export const persistenceReducer = ( state = initialState , action) => {
         case types.deleteDataById:
             return {
                 ...state,
-                data: state.data.filter( data => data.id !== action.payload )
+                data: state.data.filter( data => data.EmpleadoID !== action.payload )
             }
         
         case types.createData:
