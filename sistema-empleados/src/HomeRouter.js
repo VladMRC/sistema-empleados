@@ -24,7 +24,7 @@ import ModalLogout from './components/helpers/ModalLogout';
 import PermissionCatalog from './components/catalogs/PermissionCatalog';
 import { useDispatch, useSelector } from 'react-redux';
 import { Reset } from './actions/persistenceActions';
-// import { ChangeStatus } from '../actions/meunuActions';
+
 
 const HomeRouter = () => {
     const drawerWidth = 240;
@@ -33,7 +33,7 @@ const HomeRouter = () => {
             display: 'flex',
         },
         toolbar: {
-            paddingRight: 24, // keep right padding when drawer closed
+            paddingRight: 24,
         },
         toolbarIcon: {
             display: 'flex',
@@ -123,7 +123,6 @@ const HomeRouter = () => {
             },
             '*::-webkit-scrollbar-thumb': {
                 backgroundColor: 'rgb(255,255,255)',
-                // outline: '1px solid slategrey',
                 borderRadius: '5em',
             }
         },
