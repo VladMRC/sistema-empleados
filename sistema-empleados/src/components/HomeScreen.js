@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
 const HomeScreen = () => {
+    
     const styles = makeStyles((theme) => ({
         divContent: {
             width: '100%',
@@ -31,10 +32,11 @@ const HomeScreen = () => {
         },
     }));
     const classes = styles();
-    
+    //export const HomeScreen =()=><h1>HomeScreen</h1>;
     return (
         // Para pruebas comentar estas lineas
-        <></>
+        <>
+        </>
         // <ViewBinnacleScreen />
 
         // <div className={classes.divContent}>
