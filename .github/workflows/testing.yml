@@ -30,6 +30,8 @@ jobs:
     - name: npm install
       run: 
         npm ci
+    - name: npm init
+      run: npm init -y
     - name: npm test main-page.test.js
       run: 
         npm test
