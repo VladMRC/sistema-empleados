@@ -38,6 +38,6 @@ jobs:
           cache-dependency-path: sistema-empleados/package-lock.json
           
       - run: |
-          npm install
+          npm ci
           npm start
           npm test
