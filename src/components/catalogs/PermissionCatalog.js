@@ -144,7 +144,7 @@ const PermissionCatalog = () => {
                             <DeleteIcon style={{ color: '#DC3545' }} />
                         </IconButton>
                         <IconButton aria-label="filter list">
-                            <PDFDownloadLink document={<PdfCustom dato={row}/>} fileName="somename.pdf">
+                            <PDFDownloadLink document={<PdfCustom dato={row}/>} fileName={`CartaRecomendacion_${row.Nombre}.pdf`}>
                                 <GetAppIcon sx={{ color: '#222222'}} />
                             </PDFDownloadLink>
                         </IconButton>
