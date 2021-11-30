@@ -10,6 +10,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -24,6 +25,8 @@ import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { useSearch } from '../../hooks/useSearch';
+import { PDFDownloadLink, usePDF } from '@react-pdf/renderer';
+import PdfCustom from 'components/pdf/Pdf';
 
 const PermissionCatalog = () => {
 
@@ -40,7 +43,6 @@ const PermissionCatalog = () => {
     ] = useSearch();
 
     const dispatch = useDispatch();
-
     const state = useSelector(state => state.persistence.data);
     const { type, message, isOpen } = useSelector(state => state.toast);
 
@@ -115,7 +117,6 @@ const PermissionCatalog = () => {
                                     <ErrorMessage errors={errors} name="Email" />
                                 </FormHelperText>
                             </form>
-
                         </TableCell>
                         <TableCell align="left" style={{ padding: 0, paddingLeft: 16 }}>{row.FechaCreacion}</TableCell>
                     </>
@@ -142,6 +143,11 @@ const PermissionCatalog = () => {
                         <IconButton aria-label="filter list" onClick={handleDelete(row.EmpleadoID)} >
                             <DeleteIcon style={{ color: '#DC3545' }} />
                         </IconButton>
+                        <IconButton aria-label="filter list">
+                            <PDFDownloadLink document={<PdfCustom dato={row}/>} fileName="somename.pdf">
+                                <GetAppIcon sx={{ color: '#222222'}} />
+                            </PDFDownloadLink>
+                        </IconButton>
                     </TableCell>
             }
         </TableRow>);
@@ -165,7 +171,9 @@ const PermissionCatalog = () => {
         event.preventDefault();
         dispatch(Deleting(`user/remove/${id}`, id));
     }
-
+    const handlePdf = (row) => (event)=> {
+        event.preventDefault();
+    }
     return (
         <>
             <TableCustom
