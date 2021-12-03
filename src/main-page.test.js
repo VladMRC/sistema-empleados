@@ -5,6 +5,6 @@ import MainPage  from "./main-page";
 
 test("Renders Priority Label", () => {
     render(<MainPage />);
-    const linkElement = screen.getByText("Main Page");
+    const linkElement = screen.getByText("Roto");
     expect(linkElement);
 });
