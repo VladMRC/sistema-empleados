@@ -6,7 +6,7 @@ import MainPage from './main-page';
 
 
 ReactDOM.render(
-    <MainPage />,
+    <App />,
   document.getElementById('root')
 );
 
