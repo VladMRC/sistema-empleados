@@ -45,7 +45,7 @@ const PdfCustom = ({dato}) => {
                     Efren Hazaar Herrera Isaac
                 </Text>
                 <Text style={{ fontSize: '12px', textAlign: 'center' }}>
-                    Linkel Constructora SA. de CV.
+                    UTM
                 </Text>
             </View>
         </Page>
