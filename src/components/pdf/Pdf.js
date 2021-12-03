@@ -23,13 +23,13 @@ const PdfCustom = ({dato}) => {
         <Page size="LETTER" style={styles.body}>
             <View>
                 <Text style={{ fontSize: '12px', textAlign: 'right', margin: 12 }}>
-                    MÉRIDA, YUCATÁN A DÍA {date.getDate()} DE MES {monthNames[date.getMonth()]} DEL AÑO {date.getFullYear()}</Text>
+                    MÉRIDA, YUCATAN A DÍA {date.getDate()} DE MES {monthNames[date.getMonth()]} DEL AÑO {date.getFullYear()}</Text>
                 <Text style={{ fontSize: '12px', textAlign: 'left', marginTop: 50, marginHorizontal:12, marginBottom: 50}}>A QUIEN CORRESPONDA:</Text>
                 <Text style={{ fontSize: '12px', textAlign: 'justify', margin: 12, }}>
                     Por medio de la presente y para los fines que pretenda el interesado, hago de su 
                     conocimiento que recomiendo ampliamente al C. {dato.Nombre}, ya que es una 
                     persona Honesta y Responsable en las actividades que durante el periodo que prestó
-                    servicios en nuestra empresa que le fueron asignados, por tal motivo no tengo ninguna duda
+                    servicios en nuestra empresa fueron asignadas, por tal motivo no tengo ninguna duda
                     en expedir esta recomendación.
                 </Text>
                 <Text style={{ fontSize: '12px', textAlign: 'justify', marginTop: 12, marginHorizontal:12, marginBottom: 80 }}>
