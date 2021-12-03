@@ -18,7 +18,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: set \"CI=false\" && react-scripts build
+        run: CI=false npm run build
         
       - name: Test
         run: npm test
